@@ -1,0 +1,22 @@
+{
+  "name": "Veol",
+  "description": "Content creation made easy",
+  "main": "",
+  "authors": [
+    "Soufiane Ghzal <sghzal@gmail.com>"
+  ],
+  "license": "Fair",
+  "homepage": "https://github.com/gsouf/veol",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=2",
+    "font-awesome": "^4.7.0"
+  }
+}

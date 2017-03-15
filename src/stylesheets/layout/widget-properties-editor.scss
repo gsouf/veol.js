@@ -1,0 +1,67 @@
+.veol-property-editor{
+
+
+  box-sizing: border-box;
+
+  height: 100%;
+
+  &, input{
+    font-family: $veol-monospace-font;
+    font-size: $veol-font-size;
+  }
+
+
+  .veol-editor-row{
+
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    padding: 10px;
+    border-bottom: $veol-toolbox-border-style;
+
+    label{
+      width: 110px;
+      line-height: 21px;
+      padding-right: 3px;
+    }
+
+    .veol-widget-editor-group{
+
+      flex: 1;
+
+      input[type="text"],
+      textarea{
+        width: 100%;
+      }
+    }
+
+
+    ////////////////////////
+    // combined range
+    //
+    .veol-combined-range{
+      display: flex;
+
+      .veol-range-preview{
+        color: #999;
+        margin-right: 8px;
+      }
+
+      input[type=range]{
+        flex: 1;
+      }
+    }
+
+
+    /////////////////
+    // tooltip
+    //
+    .veol-tooltip{
+      margin-left: 5px;
+    }
+
+
+  }
+
+}

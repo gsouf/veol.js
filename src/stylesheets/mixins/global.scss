@@ -1,0 +1,41 @@
+// Clearfix from bootstrap
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+//
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin compatible-gradient($from, $to) {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.0, #{$from}, color-stop(1.0, #{$to})));
+  background: -webkit-linear-gradient(top, #{$from}, #{$to});
+  background: -moz-linear-gradient(top, #{$from}, #{$to});
+  background: -ms-linear-gradient(top, #{$from}, #{$to});
+  background: -o-linear-gradient(top, #{$from}, #{$to});
+  background: linear-gradient(top, #{$from}, #{$to});
+}
+
+
+
+@mixin compatible-no-select() {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}

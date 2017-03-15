@@ -1,0 +1,101 @@
+.veol-toolbox,
+.veol-toolbox-header{
+  color: #e2e2e2;
+  font-family: $veol-monospace-font;
+  font-size: $veol-font-size;
+}
+.veol-toolbox{
+  background: #444;
+
+  width: 100%;
+
+  border-left: $veol-toolbox-border-style;
+  border-right: $veol-toolbox-border-style;
+}
+
+.veol-toolbox-header{
+  background: #333;
+  border-top: 1px solid #5a5a5a;
+  border-bottom: 1px solid #5a5a5a;
+
+  &>ul{
+    margin: 0;
+    padding: 0 5px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    &>li{
+
+      padding: 3px 4px;
+      cursor: default;
+      transition: all 250ms;
+      font-size: 0.95em;
+      margin: 3px 1px;
+
+
+      // Fill (fill the space)
+      &.veol-fill{
+        flex: 1;
+      }
+
+      // Title
+      &.veol-title{
+
+      }
+
+      // Action button
+      &.veol-action{
+        border-radius: 3px;
+
+        &:hover{
+          background: #111;
+        }
+      }
+
+      // Inline list
+      &.veol-list-inline{
+
+        .veol-label,
+        .veol-list-choices,
+        .veol-list-choices>ul>li
+        {
+          display: inline-block;
+        }
+
+        ul{
+          margin: 0;
+          padding: 0;
+          display: flex;
+        }
+
+        .veol-list-choices>ul>li
+        {
+          transition: all 300ms;
+          padding: 0px 5px;
+
+          &:hover{
+            color: #202020;
+          }
+        }
+
+        .veol-list-choices>ul>li.veol-active{
+          color: $veol-color-active;
+        }
+
+      }
+
+      //Divider
+      &.veol-divider{
+        width: 1px;
+        margin: 5px 8px;
+        padding: 0;
+        background: #696969;
+        align-self: stretch;
+      }
+
+
+
+    }
+  }
+}

@@ -1,0 +1,43 @@
+//
+// Grid system
+// --------------------------------------------------
+
+.row {
+  @include make-row;
+}
+
+
+.veol-device-small {
+  // Small grid
+  //
+  // Columns, offsets, pushes, and pulls for the small device range, from phones
+  // to tablets.
+  @include make-grid(sm);
+}
+
+.veol-device-medium {
+  // Medium grid
+  //
+  // Columns, offsets, pushes, and pulls for the desktop device range.
+  @include make-grid(sm);
+  @include make-grid(md);
+}
+
+.veol-device-large {
+  // Large grid
+  //
+  // Columns, offsets, pushes, and pulls for the large desktop device range.
+  @include make-grid(sm);
+  @include make-grid(md);
+  @include make-grid(lg);
+}
+
+.veol-device-xlarge {
+  // Large grid
+  //
+  // Columns, offsets, pushes, and pulls for the large desktop device range.
+  @include make-grid(sm);
+  @include make-grid(md);
+  @include make-grid(lg);
+  @include make-grid(xl);
+}

@@ -1,0 +1,258 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div style="display: flex">
+    <div id="tree" style="width: 300px;"></div>
+
+    <div id="preview" style="flex: 1;"></div>
+    <div id="editor" style="width: 400px;"></div>
+</div>
+
+
+
+<link rel="stylesheet" href="../dist/veol.css"/>
+<link href="../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+<script src="../bower_components/jquery/dist/jquery.slim.js"></script>
+<script src="../dist/veol.test.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+
+
+<script>
+
+    var pageMaker = new Veol.PageMaker();
+
+    pageMaker.addWidgetDefinition('column', new Veol.Test.Widgets.Column);
+    pageMaker.addWidgetDefinition('columns', new Veol.Test.Widgets.Columns);
+
+    pageMaker.addWidgetDefinition("paragraph", Veol.WidgetDefinition.fastInstance({
+
+        faIconName: 'paragraph',
+
+        title: 'Paragraph',
+
+        properties: [
+            {
+                name: 'content',
+                label: 'Content',
+                editor: 'text',
+                defaultValue: '',
+                useDedicatedEditor: true
+            }
+        ],
+
+
+
+        preview: {
+            onDataChange: function($outter, $preview, widget){
+
+                $preview.empty();
+
+                $elm = $(`<p/>`);
+                $elm.html(widget.data.content);
+                $elm.appendTo($preview);
+
+            }
+        }
+
+    }));
+
+    pageMaker.addWidgetDefinition("image", Veol.WidgetDefinition.fastInstance({
+
+        faIconName: 'picture-o',
+
+        title: 'Picture',
+
+        properties: [
+            {
+                name: 'url',
+                label: 'Url',
+                editor: 'textfield',
+                defaultValue: '',
+            }
+        ],
+
+
+
+        preview: {
+            onDataChange: function($outter, $preview, widget){
+                $preview.empty();
+
+                $elm = $(`<img src="${widget.data.url}"/>`);
+                $elm.appendTo($preview);
+            }
+        }
+
+    }));
+
+
+    pageMaker.addWidgetDefinition("title", Veol.WidgetDefinition.fastInstance({
+
+        faIconName: 'text-height',
+
+        title: 'Title',
+
+        properties: [
+            {
+                name: 'title',
+                label: 'Titre',
+                editor: 'textfield',
+                defaultValue: 'Nouveau titre'
+            },
+            {
+                name: 'level',
+                label: 'Level',
+                editor: 'select',
+
+                tooltip: 'Niveau du titre',
+
+                multiple: false,
+                options: [
+                    {
+                        label: 'Nc',
+                        value: null
+                    },
+                    {
+                        label: 'h1',
+                        value: 'h1'
+                    },
+                    {
+                        label: 'h2',
+                        value: 'h2'
+                    },
+                    {
+                        label: 'h3',
+                        value: 'h3'
+                    }
+                ]
+            }
+        ],
+
+
+
+        preview: {
+            onDataChange: function($outter, $preview, widget){
+
+                $preview.empty();
+
+                var tagName;
+                if(widget.data.level){
+                    tagName = widget.data.level;
+                } else {
+                    tagName = 'div';
+                }
+
+                $elm = $(`<${tagName}/>`);
+                $elm.html(widget.data.title);
+                $elm.appendTo($preview);
+
+            }
+        },
+
+        getDescription: function(widget){
+
+            var title = widget.data.title || '';
+            if(title){
+                var length = widget.data.title.length;
+                if (length > 28) {
+                    title = title.substr(0, 15) + '...' + title.substr(length - 8)
+                }
+            }
+
+            if(widget.data.level){
+                title = widget.data.level + ' - ' + title;
+            }
+
+            return 'title ' +  (title ? Veol.titleDetails(title) : '');
+        }
+
+    }));
+
+
+    var data = {
+
+        widgetName: 'widget-list',
+        children: [
+
+
+            {
+                widgetName: 'title',
+
+                data: {
+                    title: 'Groupe',
+                    level: 'h1'
+                }
+            },
+
+            {
+                widgetName: 'columns',
+                children: [
+                    {
+                        widgetName: 'column',
+                        data: {
+                            size: 5
+                        },
+
+                        children: [
+                            {
+                                widgetName: 'title',
+                                data: {
+                                    'title': 'Sous groupe 1'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        widgetName: 'column',
+                        data: {
+                            size: 7
+                        },
+
+                        children: [
+                            {
+                                widgetName: 'title',
+                                data: {
+                                    'title': 'Sous groupe 2'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+
+        ]
+    };
+
+    var app = pageMaker.createApplication(data)
+
+    var t = new Veol.Gui.Tree(app);
+    var p = new Veol.Gui.Preview(app);
+    var propEditor = new Veol.Gui.WidgetPropertiesEditor(app);
+
+    $('#tree').append(t.$tree);
+    $('#preview').append(p.$root);
+    $('#editor').append(propEditor.$root);
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>

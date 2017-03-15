@@ -1,0 +1,120 @@
+.veol-preview{
+
+
+  padding: $veol-preview-main-padding;
+
+  .veol-toolbox-header{
+    margin: -$veol-preview-main-padding;
+    margin-bottom: $veol-preview-main-padding;
+  }
+
+  background: #444;
+  .veol-preview-widget{
+    &.veol-widget-selected{
+      box-shadow: 0 0 2pt 1pt #94d28b;
+    }
+  }
+
+
+  // Device
+  .veol-device-wrapper {
+    position: relative;
+    border: 35px solid #15181f;
+    border-left-width: 9px;
+    border-right-width: 9px;
+    border-radius: 5px;
+    margin: auto;
+
+    box-sizing: border-box;
+    background: #FFF;
+  }
+
+  .veol-device-top{
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin:auto;
+    width: 40px;
+    height: 5px;
+    background: #888;
+    border-radius: 6px;
+  }
+
+  .veol-device-bottom{
+    position: absolute;
+    bottom: -27px;
+    left: 0;
+    right: 0;
+    margin:auto;
+    width: 20px;
+    height: 20px;
+    background: #888;
+    border-radius: 20px;
+  }
+
+
+  // Small = mobile
+  &.veol-device-small{
+    .veol-device-wrapper {
+      width: 380px;
+      min-height: 600px;
+    }
+  }
+
+  // medium = tablet
+  &.veol-device-medium{
+    .veol-device-wrapper {
+      width: 600px;
+      min-height: 800px;
+    }
+  }
+
+  // large & xlarge = desktop
+  &.veol-device-large,
+  &.veol-device-xlarge {
+    .veol-device-wrapper {
+      min-height: 800px;
+      min-width: 650px;
+      border: none;
+      border-top: 25px solid #f4f5f7;
+      border-radius: 5px;
+      box-shadow: 0px 1px 3px 2px rgba(125, 125, 125, 0.28);
+
+    }
+
+    .veol-device-top,
+    .veol-device-bottom,
+    .veol-device-bottom:before{
+      top: -18px;
+      left: 5px;
+      background: #9c2a2d;
+      width: 10px;
+      height: 10px;
+      margin: initial;
+    }
+
+    .veol-device-bottom{
+      left: 20px;
+      background: #d48f11;
+    }
+
+    .veol-device-bottom:before{
+      left: 16px;
+      content: " ";
+      background: #6bd455;
+      display: block;
+      border-radius: 20px;
+      position: relative;
+      top: 0;
+    }
+
+  }
+
+  &.veol-device-xlarge .veol-device-wrapper{
+    margin: -$veol-preview-main-padding + 1;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+}

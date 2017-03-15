@@ -1,0 +1,8 @@
+.sass-cache
+node_modules
+.idea
+npm-debug.log
+/bower_components
+/build/coverage
+/dist/veol.test.js
+/dist/veol.test.js.map

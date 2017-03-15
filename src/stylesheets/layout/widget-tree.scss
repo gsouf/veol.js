@@ -1,0 +1,197 @@
+.veol-tree {
+  position: relative;
+  font-size: $veol-font-size;
+  font-family: $veol-monospace-font;
+
+  user-select: none;
+  background: #535353;
+
+  &.veol-tree-has-drag .veol-title > *:not(.veol-tree-fill) {
+    pointer-events: none;
+  }
+
+
+  ul.veol-root {
+    padding: 0;
+    margin: 0;
+
+    li {
+      box-sizing: border-box;
+      list-style: none;
+    }
+
+    & > li:first-child > .veol-title .veol-tree-fill {
+      border-top: $veol-toolbox-border-style;
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    .veol-title {
+
+      height: $veol-node-height;
+      box-sizing: border-box;
+      color: #EEE;
+      padding-left: 5px;
+
+      .veol-tree-fill {
+        border-bottom: $veol-toolbox-border-style;
+        content: " ";
+        display: block;
+        height: $veol-node-height;
+        width: 100%;
+        left: 0;
+        position: absolute;
+        box-sizing: border-box;
+      }
+
+      & > span {
+        position: relative;
+        padding-top: ($veol-node-height - $veol-font-size) / 2;
+        display: inline-block;
+
+        .veol-title-details {
+          color: #f7f7f7;
+          font-style: italic;
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    // Menu remove
+    .veol-title:hover .veol-menu-delete {
+      display: inline-block;
+      position: absolute;
+      right: 5px;
+      &:before {
+        display: inline-block;
+        font-family: FontAwesome;
+        content: "\f00d";
+        position: relative;
+        color: #555;
+        top: 4px;
+        transition: color 150ms;
+        cursor: pointer;
+      }
+
+      &:hover:before {
+        color: #000;
+      }
+    }
+
+    // ADD ICON
+    .veol-title:hover .veol-add {
+      display: inline-block;
+      position: absolute;
+
+      right: 20px;
+
+      &:before {
+        font-family: FontAwesome;
+        content: "\f067";
+        position: relative;
+        color: #555;
+        top: 4px;
+        transition: color 150ms;
+        cursor: pointer;
+      }
+      &:hover:before {
+        color: #000;
+      }
+
+    }
+
+
+    // Container
+    .is-container {
+
+      // FOLDER ICON
+      .veol-folder {
+        display: inline-block;
+        display: inline-block;
+        display: inline-block;
+        position: relative;
+        width: 15px;
+        margin-right: 8px;
+
+        &:before {
+          font-family: FontAwesome;
+          content: "\f07b";
+        }
+
+      }
+
+
+
+      & > .veol-title {
+        & > .veol-tree-fill {
+          background: #444444;
+        }
+
+      }
+
+      & > .veol-children {
+        display: none;
+        margin-left: 23px;
+      }
+
+    }
+
+    // Opened container
+    .is-container.open {
+      & > .veol-children {
+        display: block;
+      }
+
+      & > .veol-title > .veol-folder:before {
+        content: "\f07c";
+      }
+    }
+
+    .veol-title:hover {
+      & > .veol-tree-fill {
+        background: #49ad68;
+      }
+      & > span {
+        color: #FFF;
+      }
+    }
+
+    // DRAGGING
+    .veol-dragging > .veol-title .veol-tree-fill {
+      background: #6d9682;
+      color: #c7f8e1;
+    }
+
+    .veol-dragging
+    {
+      opacity: 0.6;
+    }
+
+
+    // DRAG OVER
+    li.veol-drag-over > .veol-title .veol-tree-fill {
+      background: #518e70;
+    }
+    li.veol-will-drop-before > .veol-title .veol-tree-fill {
+      border-top: 3px solid #3aab4d !important;
+    }
+    li.veol-will-drop-after > .veol-title .veol-tree-fill {
+      border-bottom: 3px solid #3aab4d !important;
+    }
+    li.veol-will-drop-inside > .veol-title .veol-tree-fill {
+      border: 2px solid #3aab4d !important;
+    }
+
+
+    // SELECTED
+    .veol-widget-selected>.veol-title .veol-tree-fill.veol-tree-fill
+    {
+      border: 1px solid #b9b9b9;
+      background: #777;
+    }
+
+
+  }
+}

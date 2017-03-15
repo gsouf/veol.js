@@ -1,0 +1,17 @@
+$grid-columns:              12 !default;
+$grid-gutter-width:         30px !default;
+
+
+$veol-node-height: 24px !default;
+$veol-font-size: 14px !default;
+$veol-toolbox-border-style: 1px solid #333 !default;
+$veol-monospace-font: 'Inconsolata', monospace !default;
+
+
+$veol-color-active: #00d978 !default;
+$veol-color-validate: #3aab4d !default;
+$veol-color-cancel: #9f3531 !default;
+
+
+// Padidng inside the most outer element of the preview component
+$veol-preview-main-padding: 15px !default;

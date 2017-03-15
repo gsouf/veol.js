@@ -1,0 +1,68 @@
+.veol-topbar{
+
+  font-family: $veol-monospace-font;
+  font-size: $veol-font-size;
+  color: #EEE;
+
+  width: 100%;
+  padding: 5px 8px;
+  background: #535353;
+  box-sizing: border-box;
+  display: flex;
+
+  // MENU LIST
+  .veol-list-menu{
+
+    position: relative;
+
+    &>.veol-list-choices{
+      display: none;
+      position: absolute;
+      background: #2e2e2e;
+      border: 1px solid #737373;
+      border-radius: 2px;
+      z-index: 2000;
+    }
+
+    &>button{
+      background: #535353;
+      color: white;
+
+      border: 1px solid #737373;
+      border-radius: 2px;
+
+      transition: all 300ms;
+
+      &:hover{
+        background: #333333;
+      }
+
+      &:focus + .veol-list-choices{
+        display: block;
+      }
+    }
+
+    .veol-list-choices ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .veol-list-choices li{
+      cursor: pointer;
+      padding: 3px 6px;
+
+      &:hover{
+        background: #999;
+      }
+    }
+
+  }
+
+
+
+
+  &>.veol-button{
+    margin:0;
+  }
+}
