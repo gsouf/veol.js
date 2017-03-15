@@ -95,7 +95,7 @@ Authors
 
 * **Soufiane Ghzal** - *Initial work* - [gsouf](https://github.com/gsouf)
 
-See also the list of [contributors](https://github.com/gsouf/veol/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/gsouf/veol.js/contributors) who participated in this project.
 
 License
 -------

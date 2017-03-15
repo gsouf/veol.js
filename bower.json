@@ -6,7 +6,7 @@
     "Soufiane Ghzal <sghzal@gmail.com>"
   ],
   "license": "Fair",
-  "homepage": "https://github.com/gsouf/veol",
+  "homepage": "https://github.com/gsouf/veol.js",
   "private": true,
   "ignore": [
     "**/.*",
