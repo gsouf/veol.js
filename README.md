@@ -10,7 +10,7 @@ Getting Started
 
 ### Dependency
 
-Veol depends on ``jquery`` (jquery slim is ok) and ``font awesome`` for icons. Additionally you can install the font ``inconsolata`` in order to have a more beautiful monospace font.
+Veol depends on ``jquery`` (jquery slim accepted) and ``font awesome`` for icons. Additionally you can install the font ``inconsolata`` in order to have a more beautiful monospace font.
 
 
 ### Installing
@@ -101,3 +101,11 @@ License
 -------
 
 This project is licensed under the terms of the [Fair License](https://opensource.org/licenses/Fair).
+
+
+Roadmap
+-------
+
+- Translation tools
+- Doc and guides
+- make the application to accept toolbox (make a single call to have a full application running)
