@@ -1,13 +1,12 @@
 {
-  "name": "Veol",
-  "description": "Content creation made easy",
+  "name": "veol",
+  "description": "Rich content creation from the browser",
   "main": "",
   "authors": [
     "Soufiane Ghzal <sghzal@gmail.com>"
   ],
   "license": "Fair",
   "homepage": "https://github.com/gsouf/veol.js",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
