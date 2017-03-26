@@ -108,5 +108,4 @@ Roadmap
 
 - Translation tools
 - Doc and guides
-- make the application to accept toolbox (make a single call to have a full application running)
 - json schema generation from pageMaker config

@@ -1,4 +1,7 @@
 import Component from './Component'
+import utils from '../utils'
+import ToolboxBar from './ToolboxBar'
+import PreviewDeviceSwitch from './ToolboxAction/PreviewDeviceSwitch'
 
 /**
  *
@@ -66,8 +69,11 @@ function widgetRefreshPreview($child, widget){
 
 class Preview extends Component{
 
-    constructor(application){
+    constructor(application, options){
         super();
+
+        options = options || {};
+
         this.$root.addClass('veol-preview');
 
         this.$device = $(
@@ -77,56 +83,35 @@ class Preview extends Component{
                 <div class="veol-device-bottom"></div>
             </div>`
         );
-        this.$header = $(
-            `<div class="veol-toolbox-header" >
-                <ul>
-                    <li class="veol-list-inline">
-                        <div class="veol-label">Device:</div>
-                        <div class="veol-list-choices">
-                            <ul>
-                                <li class="device-button veol-active" data-device="small">
-                                    <i class="fa fa-mobile fa-fw"></i>
-                                </li>
-                                <li class="device-button" data-device="medium">
-                                    <i class="fa fa-tablet fa-fw"></i>
-                                </li>
-                                <li class="device-button" data-device="large">
-                                    <i class="fa fa-laptop fa-fw"></i>
-                                </li>
-                                <li class="device-button" data-device="xlarge">
-                                    <i class="fa fa-desktop fa-fw"></i>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
 
 
+        var defaultDeviceMove = options.hasOwnProperty('deviceMode') ?  options.deviceMode : 'small';
 
-                    <li class="veol-fill"></li>
-                </ul>
-            </div>`
-        );
+
+        /// TOP BAR
+        if(options.hasOwnProperty('topBar')){
+            this.topBar = options.topBar;
+        } else {
+            this.topBar = new ToolboxBar();
+            if(defaultDeviceMove !== false){
+                this.topBar.append(new PreviewDeviceSwitch(this));
+            }
+        }
+        if(this.topBar){
+            this.$root.append(this.topBar.$root);
+        }
 
         this.$screen = this.$device.find('.veol-device-screen');
-        this.$root.append(this.$header);
         this.$root.append(this.$device);
-
-
 
         this.application = application;
 
         this.draw();
 
-        this.setDevice('small');
+        this.setDevice(defaultDeviceMove);
 
         var self = this;
 
-
-        // bind top menu device mode
-        this.$header.find('.device-button').click(function(){
-            var device = $(this).attr('data-device');
-            self.setDevice(device);
-        });
 
 
         application.addEventListener('widgetMoved', function(movedWidget, target, operationType){
@@ -202,14 +187,20 @@ class Preview extends Component{
         if(currentDevice) {
             this.$root.removeClass(`veol-device-${currentDevice}`);
         }
-        this.$root.addClass(`veol-device-${device}`);
-        this.$root.attr('veol-device', device);
 
-        // Update the active button
-        this.$header.find('.device-button.veol-active').removeClass('veol-active');
-        this.$header.find(`.device-button[data-device=${device}]`).addClass('veol-active');
+        if(device){
+            this.$root.addClass(`veol-device-enabled veol-device-${device}`);
+        } else {
+            this.$root.removeClass(`veol-device-enabled`);
+        }
+
+        this.$root.attr('veol-device', device);
+        this.dispatchEvent('deviceChanged', [device, currentDevice]);
     }
 
 }
+
+
+utils.makeObservable(Preview);
 
 export default Preview;

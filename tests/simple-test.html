@@ -239,6 +239,12 @@
     var preview = new Veol.Gui.Preview(app);
     var propEditor = new Veol.Gui.WidgetPropertiesEditor(app);
 
+    var button = new Veol.Gui.ToolboxAction.SimpleButton('say foo', function(){
+        alert('foo');
+    });
+    button.setButtonType('validate');
+    preview.topBar.append('->');
+    preview.topBar.append(button);
 
     var viewport = new Veol.Gui.Viewport();
     viewport.setMainComponent(preview);

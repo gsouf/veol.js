@@ -371,6 +371,17 @@ so we can ignore the csslint warning.
   align-self: stretch;
 }
 
+.veol-toolbox-header > ul > li.veol-action-btn {
+  margin: 0 1px;
+}
+
+.veol-toolbox-header > ul > li.veol-action-btn button {
+  border-width: 1px;
+  font-size: 0.95em;
+  margin: 0;
+  padding: 2px 6px;
+}
+
 .veol-preview {
   padding: 15px;
 }
@@ -385,6 +396,12 @@ so we can ignore the csslint warning.
 }
 
 .veol-preview .veol-device-wrapper {
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+
+.veol-preview.veol-device-enabled .veol-device-wrapper {
   position: relative;
   border: 35px solid #15181f;
   border-left-width: 9px;
@@ -395,7 +412,7 @@ so we can ignore the csslint warning.
   background: #FFF;
 }
 
-.veol-preview .veol-device-top {
+.veol-preview.veol-device-enabled .veol-device-top {
   position: absolute;
   top: -20px;
   left: 0;
@@ -407,7 +424,7 @@ so we can ignore the csslint warning.
   border-radius: 6px;
 }
 
-.veol-preview .veol-device-bottom {
+.veol-preview.veol-device-enabled .veol-device-bottom {
   position: absolute;
   bottom: -27px;
   left: 0;
