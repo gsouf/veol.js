@@ -21,6 +21,10 @@
     height:100%;
   }
 
+  .veol-device-screen{
+    min-height: 30px;
+  }
+
   // Device
   &.veol-device-enabled {
     .veol-device-wrapper {
