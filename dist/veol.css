@@ -3021,3 +3021,7 @@ so we can ignore the csslint warning.
 .veol-device-xlarge .col-xl-offset-12 {
   margin-left: 100%;
 }
+
+.veol-hide {
+  display: none !important;
+}

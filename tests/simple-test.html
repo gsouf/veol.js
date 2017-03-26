@@ -239,12 +239,25 @@
     var preview = new Veol.Gui.Preview(app);
     var propEditor = new Veol.Gui.WidgetPropertiesEditor(app);
 
-    var button = new Veol.Gui.ToolboxAction.SimpleButton('say foo', function(){
-        alert('foo');
+    var buttonFoo, buttonBar;
+
+    buttonFoo = new Veol.Gui.ToolboxAction.SimpleButton('foo', function(){
+        this.hide();
+        buttonBar.show();
     });
-    button.setButtonType('validate');
+    buttonFoo.setButtonType('validate');
+
+    buttonBar = new Veol.Gui.ToolboxAction.SimpleButton('bar', function(){
+        this.hide();
+        buttonFoo.show();
+    });
     preview.topBar.append('->');
-    preview.topBar.append(button);
+    preview.topBar.append(buttonFoo);
+    preview.topBar.append(buttonBar);
+
+    buttonBar.hide();
+
+
 
     var viewport = new Veol.Gui.Viewport();
     viewport.setMainComponent(preview);
