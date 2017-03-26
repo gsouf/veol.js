@@ -16,21 +16,21 @@ export default WidgetDefinition.create({
 
             var classes = $outer.attr("class").split(' ');
             $.each(classes, function(i, c) {
-                if (c.indexOf("col-") == 0) {
+                if (c.indexOf("veol-col-") == 0) {
                     $outer.removeClass(c);
                 }
             });
 
-            $outer.addClass(`col-sm-${size}`);
+            $outer.addClass(`veol-col-sm-${size}`);
 
             if(widget.data['size-md']){
-                $outer.addClass(`col-md-${widget.data['size-md']}`);
+                $outer.addClass(`veol-col-md-${widget.data['size-md']}`);
             }
             if(widget.data['size-lg']){
-                $outer.addClass(`col-lg-${widget.data['size-lg']}`);
+                $outer.addClass(`veol-col-lg-${widget.data['size-lg']}`);
             }
             if(widget.data['size-xl']){
-                $outer.addClass(`col-xl-${widget.data['size-xl']}`);
+                $outer.addClass(`veol-col-xl-${widget.data['size-xl']}`);
             }
 
         }

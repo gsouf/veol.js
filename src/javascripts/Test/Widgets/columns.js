@@ -4,7 +4,7 @@ export default WidgetDefinition.create({
     isContainer: true,
     preview: {
         onCreateContainer: function($element){
-            $element.addClass('row');
+            $element.addClass('veol-row');
         }
     },
 
