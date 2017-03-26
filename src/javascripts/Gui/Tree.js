@@ -1,6 +1,7 @@
 import utils from "../utils"
 import {titleDetails} from "../utils";
 import WidgetCreator from './WidgetCreator'
+import Component from './Component'
 
 function setTreeNodeTitle($child, widget){
     var title;
@@ -124,13 +125,13 @@ function drawWidget(tree, widget, $parent){
 
         // Has drag helps to know that the tree has a currently dragging element
         // And allows to apply "cursor-event: none" (from css) to prevent dragenter on child element of title
-        tree.$tree.addClass('veol-tree-has-drag');
+        tree.$root.addClass('veol-tree-has-drag');
 
     });
     $title.on('dragend', function(e){
         tree.$dragging = null;
         $(this).parent('.veol-tree-node').removeClass('veol-dragging');
-        tree.$tree.removeClass('veol-tree-has-drag');
+        tree.$root.removeClass('veol-tree-has-drag');
     });
 
     $title.on('dragenter', function(e){
@@ -254,8 +255,8 @@ function drawWidget(tree, widget, $parent){
 function bindApplication(application, self){
 
     application.addEventListener('widgetMoved', function(movedWidget, target, operationType){
-        var $target = self.$tree.find(`[data-wid=${target.wid}]`);
-        var $moved = self.$tree.find(`[data-wid=${movedWidget.wid}]`);
+        var $target = self.$root.find(`[data-wid=${target.wid}]`);
+        var $moved = self.$root.find(`[data-wid=${movedWidget.wid}]`);
         switch(operationType){
             case 'inside':
                 $moved.appendTo($target.find('.veol-children').first());
@@ -272,20 +273,20 @@ function bindApplication(application, self){
     });
 
     application.addEventListener('widgetDeleted', function(widget){
-        self.$tree.find(`[data-wid=${widget.wid}]`).remove();
+        self.$root.find(`[data-wid=${widget.wid}]`).remove();
     });
 
 
     application.addEventListener('widgetSelected', function(widget){
-        self.$tree.find(`[data-wid=${widget.wid}]`).addClass('veol-widget-selected');
+        self.$root.find(`[data-wid=${widget.wid}]`).addClass('veol-widget-selected');
     });
 
     application.addEventListener('unselectAllWidgets', function(){
-        self.$tree.find('.veol-widget-selected').removeClass('veol-widget-selected');
+        self.$root.find('.veol-widget-selected').removeClass('veol-widget-selected');
     });
 
     application.addEventListener('widgetDataEdited', function(widget, property, value){
-        setTreeNodeTitle(self.$tree.find(`[data-wid=${widget.wid}]`), widget);
+        setTreeNodeTitle(self.$root.find(`[data-wid=${widget.wid}]`), widget);
     });
 
     application.addEventListener('widgetAdded', function(widget){
@@ -296,9 +297,9 @@ function bindApplication(application, self){
         // if the parent is the first parent (root of the data) then we add it to the $screen directly
         // because the root element is not included in the preview
         if(parentId == application.data.wid){
-            $into = self.$tree.find(`.veol-root`);
+            $into = self.$root.find(`.veol-root`);
         } else {
-            $into = self.$tree.find(`[data-wid=${parentId}]`).find('.veol-children').first();
+            $into = self.$root.find(`[data-wid=${parentId}]`).find('.veol-children').first();
             console.log($into);
         }
 
@@ -306,10 +307,11 @@ function bindApplication(application, self){
     });
 }
 
-class Tree{
+class Tree extends Component{
 
     constructor(application){
-        this.$tree = $(`<div class="veol-tree veol-toolbox"/>`);
+        super();
+        this.$root.addClass('veol-tree veol-toolbox');
         this.$dragging = null;
         this.application = application;
 
@@ -322,7 +324,7 @@ class Tree{
             </div>`
         );
 
-        this.$tree.append(this.$header);
+        this.$root.append(this.$header);
         this.widgetCreator = new WidgetCreator(application); // TODO make it available from config
 
 
@@ -344,10 +346,10 @@ class Tree{
 
     draw(){
 
-        this.$tree.find('.veol-root').remove();
+        this.$root.find('.veol-root').remove();
 
         var $parent = $(`<ul class="veol-root veol-children"/>`);
-        $parent.appendTo(this.$tree);
+        $parent.appendTo(this.$root);
 
         var data = this.application.data;
 

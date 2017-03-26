@@ -14,11 +14,8 @@
 <body>
 
 
-<div style="display: flex">
-    <div id="tree" style="width: 300px;"></div>
-
-    <div id="preview" style="flex: 1;"></div>
-    <div id="editor" style="width: 400px;"></div>
+<div>
+    <div id="veol-viewport"></div>
 </div>
 
 
@@ -235,24 +232,22 @@
         ]
     };
 
-    var app = pageMaker.createApplication(data)
+    var app = pageMaker.createApplication(data);
 
-    var t = new Veol.Gui.Tree(app);
-    var p = new Veol.Gui.Preview(app);
+
+    var treeView = new Veol.Gui.Tree(app);
+    var preview = new Veol.Gui.Preview(app);
     var propEditor = new Veol.Gui.WidgetPropertiesEditor(app);
 
-    $('#tree').append(t.$tree);
-    $('#preview').append(p.$root);
-    $('#editor').append(propEditor.$root);
+
+    var viewport = new Veol.Gui.Viewport();
+    viewport.setMainComponent(preview);
+    viewport.appendLeftToolbox(treeView);
+    viewport.appendRightToolbox(propEditor);
 
 
-
-
+    viewport.appendTo('#veol-viewport');
 </script>
 
-
-
-
 </body>
-
 </html>

@@ -1,3 +1,5 @@
+import Component from './Component'
+
 /**
  *
  * @param {Preview} oreview
@@ -62,14 +64,12 @@ function widgetRefreshPreview($child, widget){
 }
 
 
-class Preview{
+class Preview extends Component{
 
     constructor(application){
-        this.$root = $(
-            `<div 
-                class="veol-preview"
-            />`
-        );
+        super();
+        this.$root.addClass('veol-preview');
+
         this.$device = $(
             `<div class="veol-device-wrapper">
                 <div class="veol-device-top"></div>
@@ -79,7 +79,7 @@ class Preview{
         );
         this.$header = $(
             `<div class="veol-toolbox-header" >
-                <ul>                    
+                <ul>
                     <li class="veol-list-inline">
                         <div class="veol-label">Device:</div>
                         <div class="veol-list-choices">
@@ -99,9 +99,9 @@ class Preview{
                             </ul>
                         </div>
                     </li>
-                    
-                
-                    
+
+
+
                     <li class="veol-fill"></li>
                 </ul>
             </div>`
@@ -181,8 +181,6 @@ class Preview{
     }
 
     draw(){
-
-
         this.$screen.empty();
 
         var data = this.application.data;

@@ -6,6 +6,7 @@ import Tree from './Gui/Tree'
 import Preview from './Gui/Preview'
 import WidgetPropertiesEditor from './Gui/WidgetPropertiesEditor'
 import WidgetCreator from './Gui/WidgetCreator'
+import Viewport from './Gui/Viewport'
 
 var Veol = {
     PageMaker,
@@ -15,7 +16,8 @@ var Veol = {
         Tree,
         Preview,
         WidgetPropertiesEditor,
-        WidgetCreator
+        WidgetCreator,
+        Viewport
     },
     utils,
     titleDetails

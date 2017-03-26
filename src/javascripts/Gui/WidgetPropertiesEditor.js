@@ -1,6 +1,7 @@
 import EditorPool from './WidgetPropertiesEditor/PropertyEditorPool';
 import utils from '../utils';
 import SingleFieldEditor from './SingleFieldEditor';
+import Component from './Component';
 
 /**
  *
@@ -138,21 +139,20 @@ function bindNullable(property, $editor, widget){
 
 }
 
-class WidgetPropertiesEditor{
+class WidgetPropertiesEditor extends Component{
 
     constructor(application){
-
+        super();
         this.__editorCache = {};
 
-        this.$root = $(
-            `<div class="veol-property-editor veol-controls veol-toolbox">
-                <div class="veol-toolbox-header">
-                    <ul>
-                        <li class="veol-title">Propriétés</li>
-                    </ul>
-                </div>
+        this.$root.addClass('veol-property-editor veol-controls veol-toolbox');
+        this.$root.append($(
+            `<div class="veol-toolbox-header">
+                <ul>
+                    <li class="veol-title">Propriétés</li>
+                </ul>
             </div>`
-        );
+        ));
 
         this.$propertiesWrapper = $(`<div class="veol-properties-wrapper"></div>`);
         this.$root.append(this.$propertiesWrapper);
@@ -177,9 +177,6 @@ class WidgetPropertiesEditor{
             self.$propertiesWrapper.children().hide();
         });
     }
-
-
-
 }
 
 export default WidgetPropertiesEditor;

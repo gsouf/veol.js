@@ -1,0 +1,26 @@
+.veol-viewport{
+  display: flex;
+  background: #444;
+}
+
+.veol-vp-main{
+  flex: 1;
+}
+
+.veol-vp-toolbox-container{
+  min-width: 250px;
+  display: none;
+
+  &.veol-show{
+    display: block;
+  }
+}
+
+.veol-vp-left{
+  border-right: $veol-toolbox-border-style;
+}
+.veol-vp-right{
+  border-left: $veol-toolbox-border-style;
+}
+
+

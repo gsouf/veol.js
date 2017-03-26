@@ -302,8 +302,6 @@ so we can ignore the csslint warning.
 .veol-toolbox {
   background: #444;
   width: 100%;
-  border-left: 1px solid #333;
-  border-right: 1px solid #333;
 }
 
 .veol-toolbox-header {
@@ -375,7 +373,6 @@ so we can ignore the csslint warning.
 
 .veol-preview {
   padding: 15px;
-  background: #444;
 }
 
 .veol-preview .veol-toolbox-header {
@@ -839,6 +836,32 @@ so we can ignore the csslint warning.
 
 .veol-widget-creator .veol-button-widget.veol-selected {
   background: #00d978;
+}
+
+.veol-viewport {
+  display: flex;
+  background: #444;
+}
+
+.veol-vp-main {
+  flex: 1;
+}
+
+.veol-vp-toolbox-container {
+  min-width: 250px;
+  display: none;
+}
+
+.veol-vp-toolbox-container.veol-show {
+  display: block;
+}
+
+.veol-vp-left {
+  border-right: 1px solid #333;
+}
+
+.veol-vp-right {
+  border-left: 1px solid #333;
 }
 
 .veol-button {
