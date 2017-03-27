@@ -109,3 +109,4 @@ Roadmap
 - Translation tools
 - Doc and guides
 - json schema generation from pageMaker config
+- support more icons (not only font awesome) and custom icons
