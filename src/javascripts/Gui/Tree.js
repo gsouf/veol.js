@@ -15,7 +15,10 @@ function setTreeNodeTitle($child, widget){
 
 
     if(widget.widgetDefinition.config.getDescription){
-        title += ' ' + titleDetails(widget.widgetDefinition.config.getDescription(widget));
+        let details = widget.widgetDefinition.config.getDescription(widget);
+        if(typeof details === 'string'){
+            title += ' ' + titleDetails();
+        }
     }
     $child.find(">.veol-title .veol-title-text").empty().append(title);
 }
