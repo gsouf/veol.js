@@ -112,3 +112,4 @@ Roadmap
 - support more icons (not only font awesome) and custom icons
 - Allow to make widget properties mandatory (required) and ask them before creating a widget
 - Allow to make widget properties validatable via a callback
+- Unit tests for GUI classes

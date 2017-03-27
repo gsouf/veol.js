@@ -149,6 +149,8 @@ class Preview extends Component{
                 $into = self.$root.find(`[data-wid=${parentId}]`)
             }
 
+            $into = $into.children('.veol-preview-children').first();
+
             drawWidget(self, widget, $into);
         });
 
