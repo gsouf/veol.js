@@ -1,6 +1,7 @@
 import utils from "./utils"
 import EditorPool from "./Gui/WidgetPropertiesEditor/PropertyEditorPool"
 import ConfirmBox from "./Gui/ConfirmBox"
+import VeolError from './Error'
 
 class Application {
 
@@ -10,6 +11,18 @@ class Application {
      * @param {object} data
      */
     constructor(pageMaker, data){
+
+        if(null === data || typeof data !== 'object'){
+            throw new VeolError(VeolError.ERR_INVALID_DATA, 'Veol data should be an object')
+        } else if(Object.keys(data).length === 0){
+            throw new VeolError(VeolError.ERR_INVALID_DATA, 'Veol data cannot be empty')
+        } else  if(!data.hasOwnProperty('widgetName')){
+            throw new VeolError(
+                VeolError.ERR_INVALID_DATA,
+                'the given data do not appear to be a valid widget (no widget name was provided for the root element)'
+            )
+        }
+
         this.pageMaker = pageMaker;
         this.originalData = data;
         this.data = pageMaker.parseData(data, this, null);

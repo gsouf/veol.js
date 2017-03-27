@@ -15,6 +15,7 @@ import ToolboxBar from './Gui/ToolboxBar'
 import SimpleButton from './Gui/ToolboxAction/SimpleButton'
 import PreviewDeviceSwitch from './Gui/ToolboxAction/PreviewDeviceSwitch'
 
+import Error from './Error'
 
 var Veol = {
     PageMaker,
@@ -33,7 +34,9 @@ var Veol = {
         }
     },
     utils,
-    titleDetails
+    titleDetails,
+
+    Error
 
 };
 
