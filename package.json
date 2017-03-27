@@ -1,6 +1,6 @@
 {
   "name": "Veol",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "devDependencies": {
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.5",
