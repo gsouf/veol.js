@@ -103,8 +103,8 @@ License
 This project is licensed under the terms of the [Fair License](https://opensource.org/licenses/Fair).
 
 
-Roadmap
--------
+Todo
+----
 
 - Translation tools
 - Doc and guides
@@ -113,3 +113,10 @@ Roadmap
 - Allow to make widget properties mandatory (required) and ask them before creating a widget
 - Allow to make widget properties validatable via a callback
 - Unit tests for GUI classes
+- Make widget duplicable
+- History with undo/redo
+- widget icon in tree
+- use arrow instead of folder for container in tree
+- add an event when any widget data changed (any of widgetDataEdited, widgetDeleted, widgetMoved, widgetAdded)
+- imporve meta data and editor data management
+- implement timeable features
