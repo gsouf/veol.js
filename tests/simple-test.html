@@ -138,11 +138,7 @@
                     }
                 ]
             },
-            {
-                name: 'customTest',
-                label: 'custom handler',
-                editor: 'custom'
-            },
+
             {
                 name: 'colorEnabled',
                 label: 'Colored',
@@ -151,8 +147,18 @@
             {
                 name: 'color',
                 label: 'Color',
-                editor: 'color'
-            }
+                editor: 'color',
+                showIf: function(data){
+                    return data.colorEnabled;
+                }
+            },
+
+            {
+                name: 'customTest',
+                label: 'custom handler',
+                editor: 'custom'
+            },
+
         ],
 
 

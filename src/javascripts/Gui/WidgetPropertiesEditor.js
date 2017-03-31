@@ -52,6 +52,11 @@ function drawWidget(propertyEditor, widget){
                 bindNullable(property, $editor, widget);
             }
 
+            // ShowIf
+            if (property.showIf) {
+               bindShowIf(property, $editorRow, widget)
+            }
+
             // Append to the group
             $weditor.append($editorRow);
 
@@ -60,6 +65,21 @@ function drawWidget(propertyEditor, widget){
         propertyEditor.$propertiesWrapper.append($weditor);
     }
 
+}
+
+function bindShowIf(property, $editor, widget) {
+    widget.addEventListener('dataEdited', function(){
+        if (property.showIf(widget.data)) {
+            $editor.removeClass('veol-hide');
+        } else {
+            $editor.addClass('veol-hide');
+        }
+    });
+
+    // Initialize
+    if(!property.showIf(widget.data)){
+        $editor.addClass('veol-hide');
+    }
 }
 
 function createEditorField(property, widget, $editorRow, propertyEditor) {
