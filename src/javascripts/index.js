@@ -17,6 +17,8 @@ import PreviewDeviceSwitch from './Gui/ToolboxAction/PreviewDeviceSwitch'
 
 import Error from './Error'
 
+import PropertyEditor from './Gui/WidgetPropertiesEditor/PropertyEditor'
+
 var Veol = {
     PageMaker,
     WidgetDefinition,
@@ -33,6 +35,9 @@ var Veol = {
             PreviewDeviceSwitch
         }
     },
+
+    PropertyEditor,
+
     utils,
     titleDetails,
 
