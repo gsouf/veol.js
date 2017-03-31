@@ -142,6 +142,16 @@
                 name: 'customTest',
                 label: 'custom handler',
                 editor: 'custom'
+            },
+            {
+                name: 'colorEnabled',
+                label: 'Colored',
+                editor: 'checkbox'
+            },
+            {
+                name: 'color',
+                label: 'Color',
+                editor: 'color'
             }
         ],
 
@@ -162,6 +172,13 @@
                 $elm = $(`<${tagName}/>`);
                 $elm.html(widget.data.title);
                 $elm.appendTo($preview);
+
+                if(widget.data.colorEnabled){
+
+                    var color = widget.data.color || "#F00";
+
+                    $elm.css({color: color});
+                }
 
             }
         },

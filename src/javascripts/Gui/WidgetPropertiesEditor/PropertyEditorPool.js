@@ -3,6 +3,7 @@ import TextArea from './Editor/TextArea'
 import Select from './Editor/Select'
 import Range from './Editor/Range'
 import Checkbox from './Editor/Checkbox'
+import Color from './Editor/Color'
 
 
 function loadDefaults(pool){
@@ -11,6 +12,7 @@ function loadDefaults(pool){
     pool.addEditor(['select'], new Select());
     pool.addEditor(['range'], new Range());
     pool.addEditor(['checkbox'], new Checkbox());
+    pool.addEditor(['color'], new Color());
 }
 
 class PropertyEditorPool{
