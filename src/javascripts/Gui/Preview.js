@@ -141,15 +141,16 @@ class Preview extends Component{
 
             var $into;
 
+
             // if the parent is the first parent (root of the data) then we add it to the $screen directly
             // because the root element is not included in the preview
             if(parentId == application.data.wid){
                 $into = self.$screen;
             } else {
                 $into = self.$root.find(`[data-wid=${parentId}]`)
+                $into = $into.children('.veol-preview-children').first();
             }
 
-            $into = $into.children('.veol-preview-children').first();
 
             drawWidget(self, widget, $into);
         });
