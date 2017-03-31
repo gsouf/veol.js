@@ -10,6 +10,14 @@
     font-size: $veol-font-size;
   }
 
+  .veol-dedicated-editor-button{
+    cursor: pointer;
+    border-bottom: 1px dotted transparent;
+
+    &:hover{
+      border-color: #EEE;
+    }
+  }
 
   .veol-editor-row{
 

@@ -673,6 +673,15 @@ so we can ignore the csslint warning.
   font-size: 14px;
 }
 
+.veol-property-editor .veol-dedicated-editor-button {
+  cursor: pointer;
+  border-bottom: 1px dotted transparent;
+}
+
+.veol-property-editor .veol-dedicated-editor-button:hover {
+  border-color: #EEE;
+}
+
 .veol-property-editor .veol-editor-row {
   display: flex;
   flex-flow: row;
