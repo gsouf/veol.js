@@ -31,6 +31,7 @@
 
     var pageMaker = new Veol.PageMaker();
 
+    pageMaker.editorPool.addEditor('custom', new Veol.Test.Editors.CustomEdition());
     pageMaker.addWidgetDefinition('column', new Veol.Test.Widgets.Column);
     pageMaker.addWidgetDefinition('columns', new Veol.Test.Widgets.Columns);
 
@@ -109,6 +110,8 @@
                 defaultValue: 'Nouveau titre'
             },
             {
+
+                useDedicatedEditor: true,
                 name: 'level',
                 label: 'Level',
                 editor: 'select',
@@ -134,6 +137,11 @@
                         value: 'h3'
                     }
                 ]
+            },
+            {
+                name: 'customTest',
+                label: 'custom handler',
+                editor: 'custom'
             }
         ],
 

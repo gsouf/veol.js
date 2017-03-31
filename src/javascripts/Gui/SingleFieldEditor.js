@@ -29,7 +29,7 @@ class SingleFieldEditor{
 
         this.$modalContent = this.$root.find('.veol-modal-content');
 
-        var editor = utils.getPropertyEditor(property, widget.application.editorPool);
+        var editor = utils.getPropertyEditor(property, widget.application.pageMaker.editorPool);
         var $editor = editor.createEditor(widget, property);
 
         this.$modalContent.append($editor);

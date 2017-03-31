@@ -19,6 +19,11 @@ class PropertyEditor{
         return this.config.isLiveEdit === true;
     }
 
+    hasEditionHandler(){
+        return !!this.config.editionHandler;
+    }
+
+
     getValue($editor) {
         var valueGetter = $editor.data('veol-get-value');
         if(! typeof valueGetter == 'function'){

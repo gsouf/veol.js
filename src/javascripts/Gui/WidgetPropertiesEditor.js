@@ -66,24 +66,40 @@ function createEditorField(property, widget, $editorRow, propertyEditor) {
 
     var editor = utils.getPropertyEditor(property, propertyEditor.editorPool);
 
-    if(property.useDedicatedEditor || !editor.isLiveEdit()){
-        // If dedicated editor is enabled we show the editor in a popup
-        var singleFieldEditor = new SingleFieldEditor(widget, property);
+    if(property.useDedicatedEditor || !editor.isLiveEdit() || editor.hasEditionHandler()){
 
         var $editButton = $('<div class="veol-dedicated-editor-button">Editer</div>');
-        $editButton.click(function(){
-            singleFieldEditor.show();
-        });
+
+        if(editor.hasEditionHandler()){
+            // The editor has defined its own method to edit the field
+            $editButton.click(function(){
+                editor.config.editionHandler(widget, property);
+            });
+        } else {
+            // If dedicated editor is enabled we show the editor in a popup
+            var singleFieldEditor = new SingleFieldEditor(widget, property);
+
+            $editButton.click(function(){
+                singleFieldEditor.show();
+            });
+        }
+
         return $editButton;
 
     } else {
-        // Else we show the inlined editor
+        // Else we show the inline editor
 
         var $editor = editor.createEditor(widget, property);
         return $editor;
     }
 }
 
+/**
+ * Add a checkbox and logic required for nullable properties
+ * @param property
+ * @param $editor
+ * @param widget
+ */
 function bindNullable(property, $editor, widget){
     var $nullableCb = $('<input type="checkbox"/>');
 

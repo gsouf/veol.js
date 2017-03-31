@@ -1,11 +1,16 @@
 import Veol from './index'
 import Column from './Test/Widgets/column'
 import Columns from './Test/Widgets/columns'
+import CustomEdition from './Test/Editor/CustomEdition'
 
 Veol.Test = {
     Widgets: {
         Column,
         Columns
+    },
+
+    Editors: {
+        CustomEdition
     },
 
     jasmineMatchers: {
