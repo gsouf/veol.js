@@ -28,10 +28,6 @@ class Application {
         this.data = pageMaker.parseData(data, this, null);
         this.selectedWidget = [];
 
-        this.editorPool = new EditorPool({
-            loadDefaults: true
-        });
-
         this.yesNo = new ConfirmBox();
     }
 

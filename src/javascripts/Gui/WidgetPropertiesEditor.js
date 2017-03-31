@@ -160,7 +160,7 @@ class WidgetPropertiesEditor extends Component{
 
 
         this.application = application;
-        this.editorPool = application.editorPool;
+        this.editorPool = application.pageMaker.editorPool;
 
 
         var self = this;

@@ -1,11 +1,16 @@
 import WidgetWidgetList from "./Widgets/widget-list"
 import Application from "./Application"
 import utils from "./utils"
+import EditorPool from './Gui/WidgetPropertiesEditor/PropertyEditorPool'
 
 var widgetInstanceId = 10000;
 
 var PageMaker = function(){
     this.widgets = {};
+
+    this.editorPool = new EditorPool({
+        loadDefaults: true
+    });
 
     this.addWidgetDefinition("widget-list", new WidgetWidgetList());
 };

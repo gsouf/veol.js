@@ -401,6 +401,10 @@ so we can ignore the csslint warning.
   height: 100%;
 }
 
+.veol-preview .veol-device-screen {
+  min-height: 30px;
+}
+
 .veol-preview.veol-device-enabled .veol-device-wrapper {
   position: relative;
   border: 35px solid #15181f;
