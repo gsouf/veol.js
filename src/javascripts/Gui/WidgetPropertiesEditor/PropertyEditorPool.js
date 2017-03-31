@@ -2,6 +2,7 @@ import TextField from './Editor/TextField'
 import TextArea from './Editor/TextArea'
 import Select from './Editor/Select'
 import Range from './Editor/Range'
+import Checkbox from './Editor/Checkbox'
 
 
 function loadDefaults(pool){
@@ -9,6 +10,7 @@ function loadDefaults(pool){
     pool.addEditor(['text', 'textArea'], new TextArea());
     pool.addEditor(['select'], new Select());
     pool.addEditor(['range'], new Range());
+    pool.addEditor(['checkbox'], new Checkbox());
 }
 
 class PropertyEditorPool{
