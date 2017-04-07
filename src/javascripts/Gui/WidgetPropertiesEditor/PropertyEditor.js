@@ -24,7 +24,6 @@ class PropertyEditor{
     }
 
     afterDraw($editor, widget, property){
-        console.log($editor);
         // To be implemented by children that need logic after element is drawn
     }
 
