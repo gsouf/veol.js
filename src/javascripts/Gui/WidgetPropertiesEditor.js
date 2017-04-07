@@ -38,9 +38,7 @@ function drawWidget(propertyEditor, widget){
             $editorRow.append($(`<label>${label}</label>`));
 
             // Editor
-            var $editor = createEditorField(property, widget, $editorRow, propertyEditor);
-            $editorRow.append($editor);
-
+            var $editor = drawEditorField(property, widget, $editorRow, propertyEditor);
 
             // Tooltip
             if(property.tooltip){
@@ -82,7 +80,7 @@ function bindShowIf(property, $editor, widget) {
     }
 }
 
-function createEditorField(property, widget, $editorRow, propertyEditor) {
+function drawEditorField(property, widget, $editorRow, propertyEditor) {
 
     var editor = utils.getPropertyEditor(property, propertyEditor.editorPool);
 
@@ -104,12 +102,15 @@ function createEditorField(property, widget, $editorRow, propertyEditor) {
             });
         }
 
+        $editorRow.append($editButton);
         return $editButton;
 
     } else {
         // Else we show the inline editor
 
         var $editor = editor.createEditor(widget, property);
+        $editorRow.append($editor);
+        editor.afterDraw($editor, widget, property);
         return $editor;
     }
 }

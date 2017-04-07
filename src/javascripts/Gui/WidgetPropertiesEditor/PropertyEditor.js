@@ -23,6 +23,10 @@ class PropertyEditor{
         return !!this.config.editionHandler;
     }
 
+    afterDraw($editor, widget, property){
+        console.log($editor);
+        // To be implemented by children that need logic after element is drawn
+    }
 
     getValue($editor) {
         var valueGetter = $editor.data('veol-get-value');

@@ -33,6 +33,7 @@ class SingleFieldEditor{
         var $editor = editor.createEditor(widget, property);
 
         this.$modalContent.append($editor);
+        editor.afterDraw($editor, widget, property);
 
         var self = this;
 
