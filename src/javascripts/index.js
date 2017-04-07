@@ -47,6 +47,6 @@ var Veol = {
 
 };
 
-Veol.propertyEditor.simpleInput = EditorSimpleInput;
+Veol.PropertyEditor.SimpleInput = EditorSimpleInput;
 
 export default Veol;
