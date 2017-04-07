@@ -17,7 +17,9 @@ import PreviewDeviceSwitch from './Gui/ToolboxAction/PreviewDeviceSwitch'
 
 import Error from './Error'
 
+// Editor
 import PropertyEditor from './Gui/WidgetPropertiesEditor/PropertyEditor'
+import EditorSimpleInput from './Gui/WidgetPropertiesEditor/Editor/SimpleInput'
 
 var Veol = {
     PageMaker,
@@ -44,5 +46,7 @@ var Veol = {
     Error
 
 };
+
+Veol.propertyEditor.simpleInput = EditorSimpleInput;
 
 export default Veol;
