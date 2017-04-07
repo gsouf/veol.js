@@ -701,7 +701,8 @@ so we can ignore the csslint warning.
 }
 
 .veol-property-editor .veol-editor-row .veol-widget-editor-group input[type="text"],
-.veol-property-editor .veol-editor-row .veol-widget-editor-group textarea {
+.veol-property-editor .veol-editor-row .veol-widget-editor-group textarea,
+.veol-property-editor .veol-editor-row .veol-widget-editor-group select {
   width: 100%;
 }
 
