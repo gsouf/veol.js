@@ -501,7 +501,7 @@ so we can ignore the csslint warning.
   background: #535353;
 }
 
-.veol-tree.veol-tree-has-drag .veol-title > *:not(.veol-tree-fill) {
+.veol-tree.veol-tree-has-drag .veol-title-content > *:not(.veol-tree-fill) {
   pointer-events: none;
 }
 
@@ -523,6 +523,10 @@ so we can ignore the csslint warning.
   padding: 0;
 }
 
+.veol-tree ul.veol-root .veol-title-content {
+  padding-top: 5px;
+}
+
 .veol-tree ul.veol-root .veol-title {
   height: 24px;
   box-sizing: border-box;
@@ -541,13 +545,13 @@ so we can ignore the csslint warning.
   box-sizing: border-box;
 }
 
-.veol-tree ul.veol-root .veol-title > span {
+.veol-tree ul.veol-root .veol-title .veol-title-text {
   position: relative;
-  padding-top: 5px;
   display: inline-block;
+  vertical-align: middle;
 }
 
-.veol-tree ul.veol-root .veol-title > span .veol-title-details {
+.veol-tree ul.veol-root .veol-title .veol-title-text .veol-title-details {
   color: #f7f7f7;
   font-style: italic;
   font-size: 0.8em;
@@ -594,21 +598,35 @@ so we can ignore the csslint warning.
   color: #000;
 }
 
-.veol-tree ul.veol-root .is-container .veol-folder {
+.veol-tree ul.veol-root .widget-icon {
+  font-size: 0.7em;
+  margin-right: 6px;
+  position: relative;
+  color: #000;
+}
+
+.veol-tree ul.veol-root .veol-widget-name {
+  max-width: 100px;
   display: inline-block;
-  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.veol-tree ul.veol-root .is-container .veol-caret {
   display: inline-block;
   position: relative;
   width: 15px;
-  margin-right: 8px;
+  vertical-align: middle;
 }
 
-.veol-tree ul.veol-root .is-container .veol-folder:before {
+.veol-tree ul.veol-root .is-container .veol-caret:before {
   font-family: FontAwesome;
-  content: "\F07B";
+  content: "\F0DA";
 }
 
-.veol-tree ul.veol-root .is-container > .veol-title > .veol-tree-fill {
+.veol-tree ul.veol-root .is-container > .veol-title .veol-tree-fill {
   background: #444444;
 }
 
@@ -621,8 +639,8 @@ so we can ignore the csslint warning.
   display: block;
 }
 
-.veol-tree ul.veol-root .is-container.open > .veol-title > .veol-folder:before {
-  content: "\F07C";
+.veol-tree ul.veol-root .is-container.open > .veol-title .veol-caret:before {
+  content: "\F0D7";
 }
 
 .veol-tree ul.veol-root .veol-title:hover > .veol-tree-fill {
@@ -867,6 +885,13 @@ so we can ignore the csslint warning.
 
 .veol-widget-creator .veol-button-widget.veol-selected {
   background: #00d978;
+}
+
+.veol-widget-creator .veol-widget-name {
+  height: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .veol-viewport {

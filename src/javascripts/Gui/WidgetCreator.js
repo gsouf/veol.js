@@ -10,17 +10,17 @@ function createWidgetButton(widgetName, widgetDef){
         widgetTitle = widgetName;
     }
 
-    var icon;
-    if(widgetDef.config.faIconName){
-        icon = `<i class="fa fa-lg fa-${widgetDef.config.faIconName}"></i>`;
-    } else {
-        icon = `<i class="fa fa-lg fa-question-circle-o"></i>`
+    var iconClass = utils.getWidgetIconClass(widgetDef);
+    if(!iconClass){
+        iconClass = 'fa fa-lg fa-question-circle-o';
     }
+    var icon = `<i class="${iconClass}"></i>`;
+
 
     var $widgetButton = $(
-        `<div class="veol-button veol-button-large veol-button-widget" veol-widget-name="${widgetName}">
+        `<div class="veol-button veol-button-large veol-button-widget" title="${widgetTitle}" veol-widget-name="${widgetName}">
             <div class="veol-icon">${icon}</div>
-            <span class="veol-widget-name">${widgetTitle}</span>
+            <div class="veol-widget-name">${widgetTitle}</div>
         </div>`
     );
 
@@ -49,7 +49,7 @@ class WidgetCreator{
                     <div veol-close class="veol-button veol-button-cancel">Annuler</div>
                     <div class="veol-button veol-button-validate">Valider</div>
                 </div>
-            </div>         
+            </div>
           </div>
         `);
 

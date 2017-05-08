@@ -203,6 +203,16 @@ export default {
             closeHandler();
         });
 
+    },
+
+
+    getWidgetIconClass: function(widgetDef){
+
+        if(widgetDef.config.faIconName){
+            return `fa fa-${widgetDef.config.faIconName}`;
+
+        }
+        return false;
     }
 
 };

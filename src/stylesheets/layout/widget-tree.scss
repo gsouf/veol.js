@@ -6,7 +6,7 @@
   user-select: none;
   background: #535353;
 
-  &.veol-tree-has-drag .veol-title > *:not(.veol-tree-fill) {
+  &.veol-tree-has-drag .veol-title-content > *:not(.veol-tree-fill) {
     pointer-events: none;
   }
 
@@ -28,12 +28,17 @@
       padding: 0;
     }
 
+    .veol-title-content{
+      padding-top: ($veol-node-height - $veol-font-size) / 2;
+    }
+
     .veol-title {
 
       height: $veol-node-height;
       box-sizing: border-box;
       color: #EEE;
       padding-left: 5px;
+
 
       .veol-tree-fill {
         border-bottom: $veol-toolbox-border-style;
@@ -46,10 +51,10 @@
         box-sizing: border-box;
       }
 
-      & > span {
+      .veol-title-text {
         position: relative;
-        padding-top: ($veol-node-height - $veol-font-size) / 2;
         display: inline-block;
+        vertical-align: middle;
 
         .veol-title-details {
           color: #f7f7f7;
@@ -102,22 +107,37 @@
 
     }
 
+    // Widget icon
+    .widget-icon{
+      font-size:0.7em;
+      margin-right: 6px;
+      position: relative;
+      color: #000;
+    }
+
+    // Widget name (with ellispsis)
+    .veol-widget-name{
+      max-width: 100px;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
 
     // Container
     .is-container {
 
       // FOLDER ICON
-      .veol-folder {
-        display: inline-block;
-        display: inline-block;
+      .veol-caret {
         display: inline-block;
         position: relative;
         width: 15px;
-        margin-right: 8px;
+        vertical-align: middle;
 
         &:before {
           font-family: FontAwesome;
-          content: "\f07b";
+          content: "\f0da";
         }
 
       }
@@ -125,7 +145,7 @@
 
 
       & > .veol-title {
-        & > .veol-tree-fill {
+        .veol-tree-fill {
           background: #444444;
         }
 
@@ -138,14 +158,16 @@
 
     }
 
+
+
     // Opened container
     .is-container.open {
       & > .veol-children {
         display: block;
       }
 
-      & > .veol-title > .veol-folder:before {
-        content: "\f07c";
+      & > .veol-title .veol-caret:before {
+        content: "\f0d7";
       }
     }
 

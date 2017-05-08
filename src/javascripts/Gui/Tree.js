@@ -12,7 +12,7 @@ function setTreeNodeTitle($child, widget){
         title = widget.widgetName;
     }
 
-
+    title = `<span class="veol-widget-name">${title}</span>`;
 
     if(widget.widgetDefinition.config.getDescription){
         let details = widget.widgetDefinition.config.getDescription(widget);
@@ -20,7 +20,7 @@ function setTreeNodeTitle($child, widget){
             title += ' ' + titleDetails(details);
         }
     }
-    $child.find(">.veol-title .veol-title-text").empty().append(title);
+    $child.find(".veol-title .veol-title-text").empty().append(title);
 }
 
 
@@ -36,7 +36,10 @@ function drawWidget(tree, widget, $parent){
     var isContainer = widgetDef.isContainer();
     var $child = $(`<li class="veol-tree-node" data-wid="${widget.wid}"/>`);
 
+
+
     $child.appendTo($parent);
+
 
     // Associate widget with the dom element
     $child.data('widget-instance', widget);
@@ -45,9 +48,11 @@ function drawWidget(tree, widget, $parent){
     var $title = $(`<div draggable="true" class="veol-title"></div>`);
     $child.append($title);
 
+    var $titleContent = $('<div class="veol-title-content"></div>');
+    $titleContent.appendTo($title);
 
-    // Set Title value
-    $title.append(`<span class="veol-title-text"></span>`);
+    // title = Widget name + widget summary
+    $titleContent.append(`<span class="veol-title-text"></span>`);
     setTreeNodeTitle($child, widget);
 
 
@@ -59,18 +64,25 @@ function drawWidget(tree, widget, $parent){
         tree.application.selectWidget(widget);
     });
 
+    var iconClass = utils.getWidgetIconClass(widget.widgetDefinition);
+    if (iconClass) {
+        var $widgetIcon = $(`<i class="widget-icon ${iconClass}"></i>`);
+        $titleContent.prepend($widgetIcon);
+    }
+
+
     if (isContainer) {
 
-        // Folder icon
-        var $folder = $(`<div class="veol-folder"></div>`);
-        $title.prepend($folder);
-        $folder.click(function(){
+        // Caret icon
+        var $caret = $(`<div class="veol-caret"></div>`);
+        $titleContent.prepend($caret);
+        $caret.click(function(){
             $child.toggleClass('open')
         });
 
         // Add icon
         var $addIcon = $(`<div class="veol-add"></div>`);
-        $title.append($addIcon);
+        $titleContent.append($addIcon);
         $addIcon.click(function(){
             tree.widgetCreator.createForParent(widget);
         });
@@ -88,7 +100,7 @@ function drawWidget(tree, widget, $parent){
 
     // delete icon
     var $delete = $(`<div class="veol-menu-delete"></div>`);
-    $title.append($delete);
+    $titleContent.append($delete);
     $delete.click(function(){
 
         var message = 'Supprimer le widget ?';
