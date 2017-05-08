@@ -897,6 +897,7 @@ so we can ignore the csslint warning.
 .veol-viewport {
   display: flex;
   background: #444;
+  line-height: 1em;
 }
 
 .veol-vp-main {
