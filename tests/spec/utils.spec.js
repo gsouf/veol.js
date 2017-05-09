@@ -75,4 +75,21 @@ describe("utils", () => {
         expect(Veol.utils.arrayContainsOneOf(['foo', 'bar'], ['foo'])).toBe(true);
         expect(Veol.utils.arrayContainsOneOf(['bar'], ['foo'])).toBe(false);
     });
+
+
+    it("Dispatch event data", () => {
+
+        var a = {};
+        var b = null;
+
+        Veol.utils.makeObservable(a, true);
+
+        a.addEventListener('foo', function(){
+            b  = this.data.foo;
+        });
+
+        expect(b).toBe(null);
+        a.dispatchEvent('foo', [], {foo: "bar"});
+        expect(b).toBe('bar');
+    })
 });

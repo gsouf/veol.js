@@ -25,19 +25,21 @@ var arrayContainsOneOf = function(testArray, dataArray) {
     return false;
 };
 
-function createEvent(){
+function createEvent(data){
     var stopped = false;
-    var Event = {
+    var event = {
         stop: function(){
             stopped = true;
         },
 
         isStopped: function(){
             return stopped;
-        }
+        },
+
+        data: data || {}
     };
 
-    return Event;
+    return event;
 }
 
 var titleDetails = function(title){
@@ -51,7 +53,7 @@ export default {
     /**
      * Extends the prototype of the given object to be observable (and compatible with RxJS)
      * @param target
-     * @param directBind by default observablemethods re added on the prototype but it's possible to add them
+     * @param directBind by default observable methods are added on the prototype but it's possible to add them
      * directly as object properties by passing this param to true
      */
     makeObservable: function (target, directBind){
@@ -89,10 +91,10 @@ export default {
             }
         };
 
-        realTarget.dispatchEvent = function(name, properties){
+        realTarget.dispatchEvent = function(name, properties, eventData){
             var eventTarget = directBind ? realTarget : this;
 
-            var event = createEvent();
+            var event = createEvent(eventData);
 
             if(eventTarget.hasOwnProperty('__veol_callbacks') && eventTarget.__veol_callbacks.hasOwnProperty(name)){
                 for(var i = 0; i < eventTarget.__veol_callbacks[name].length; i++) {
