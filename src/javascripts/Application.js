@@ -79,11 +79,12 @@ class Application {
      * @param widget
      * @param propertyName
      * @param value
+     * @param eventData data to pass to the event
      */
-    updateWidgetData (widget, propertyName, value) {
+    updateWidgetData (widget, propertyName, value, eventData) {
         this.getWidget(widget).data[propertyName] = value;
-        this.dispatchEvent('widgetDataEdited', [widget, propertyName, value]);
-        widget.dispatchEvent('dataEdited', [propertyName, value]);
+        this.dispatchEvent('widgetDataEdited', [widget, propertyName, value], eventData);
+        widget.dispatchEvent('dataEdited', [propertyName, value], eventData);
     }
 
     /**
@@ -91,11 +92,12 @@ class Application {
      * @param widget
      * @param metaName
      * @param value
+     * @param eventData data to pass to the event
      */
-    updateWidgetMeta(widget, metaName, value) {
+    updateWidgetMeta(widget, metaName, value, eventData) {
         this.getWidget(widget).meta[metaName] = value;
-        this.dispatchEvent('widgetMetaEdited', [widget, metaName, value]);
-        widget.dispatchEvent('metaEdited', [metaName, value]);
+        this.dispatchEvent('widgetMetaEdited', [widget, metaName, value], eventData);
+        widget.dispatchEvent('metaEdited', [metaName, value], eventData);
     }
 
     /**
@@ -103,11 +105,12 @@ class Application {
      * @param widget
      * @param name
      * @param value
+     * @param eventData data to pass to the event
      */
-    updateWidgetEditorProperty(widget, name, value) {
+    updateWidgetEditorProperty(widget, name, value, eventData) {
         this.getWidget(widget).editor[name] = value;
-        this.dispatchEvent('widgetEditorPropertyEdited', [widget, name, value]);
-        widget.dispatchEvent('editorPropertyEdited', [name, value]);
+        this.dispatchEvent('widgetEditorPropertyEdited', [widget, name, value], eventData);
+        widget.dispatchEvent('editorPropertyEdited', [name, value], eventData);
     }
 
     /**

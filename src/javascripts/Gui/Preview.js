@@ -42,7 +42,7 @@ function drawWidget(preview, widget, $parent){
 
 
 
-        widgetRefreshPreview($child, widget);
+        widgetRefreshPreview($child, widget, {});
 
         for(var i = 0; i < widget.children.length; i++){
             drawWidget(preview, widget.children[i], $subParent);
@@ -53,16 +53,16 @@ function drawWidget(preview, widget, $parent){
         var $innerData = $(`<div class="veol-preview-content"></div>`);
         $innerData.appendTo($child);
 
-        widgetRefreshPreview($child, widget);
+        widgetRefreshPreview($child, widget, {});
     }
 
 }
 
-function widgetRefreshPreview($child, widget){
+function widgetRefreshPreview($child, widget, event){
     var preview = widget.widgetDefinition.config.preview;
     if(preview && preview.onDataChange){
         var $innerData = $child.find('.veol-preview-content').first();
-        preview.onDataChange($child, $innerData, widget);
+        preview.onDataChange($child, $innerData, widget, event);
     }
 }
 
@@ -164,7 +164,7 @@ class Preview extends Component{
         });
 
         application.addEventListener('widgetDataEdited', function(widget, property, value){
-            widgetRefreshPreview(self.$root.find(`[data-wid=${widget.wid}]`), widget);
+            widgetRefreshPreview(self.$root.find(`[data-wid=${widget.wid}]`), widget, this);
         });
     }
 
