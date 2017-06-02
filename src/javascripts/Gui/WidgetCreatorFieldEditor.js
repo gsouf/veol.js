@@ -42,7 +42,7 @@ export default class WidgetCreatorFieldEditor{
         // Create widget with default values
         let newWidget = this.application.pageMaker.parseData(data, this.application, parent);
 
-
+        let title = this.widgetDef.config.title || this.widgetName;
 
         // Create modal
         let $modalRoot = this.$root = $(`
@@ -50,7 +50,7 @@ export default class WidgetCreatorFieldEditor{
             <div class="veol-modal-background"></div>
             <div class="veol-modal-display-area veol-controls">
                 <div class="veol-modal-header">
-                    <div class="veol-modal-title">Creation d'un widget: ${this.widgetName}</div>
+                    <div class="veol-modal-title">Creation d'un widget: ${title}</div>
                 </div>
                 <div class="veol-modal-content"></div>
                 <div class="veol-modal-footer">
