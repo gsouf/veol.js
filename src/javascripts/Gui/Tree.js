@@ -20,7 +20,8 @@ function setTreeNodeTitle($child, widget){
             title += ' ' + titleDetails(details);
         }
     }
-    $child.find(".veol-title .veol-title-text").empty().append(title);
+
+    $child.children(".veol-title").find('.veol-title-text').empty().append(title);
 }
 
 
