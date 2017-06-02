@@ -1,6 +1,10 @@
 import utils from '../utils';
 import drawWidgetEditors from './WidgetPropertiesEditor/drawWidgetEditors'
 
+/**
+ * This class allows to create a widget from a widget name.
+ * It is responsible for managing default things for creating the widget.
+ */
 export default class WidgetCreatorFieldEditor{
 
     /**

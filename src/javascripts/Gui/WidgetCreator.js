@@ -131,6 +131,10 @@ class WidgetCreator{
             self.$root.find('.veol-button-validate').html('Ajouter le widget');
         });
 
+        if(this.$widgetList.length == 1){
+            this.$widgetList.children().first().trigger('click');
+        }
+
         this.$root.show();
     }
 
