@@ -20,14 +20,29 @@ class Viewport {
 
     appendLeftToolbox(component){
         component.getComponentRoot().appendTo(this.$leftPannel);
-        this.$leftPannel.addClass('veol-show');
+        this.showLeftPannel()
     }
 
     appendRightToolbox(component){
         component.getComponentRoot().appendTo(this.$rightPannel);
+        this.showRightPannel();
+    }
+
+    hideRightPannel(){
+        this.$rightPannel.removeClass('veol-show');
+    }
+
+    showRightPannel(){
         this.$rightPannel.addClass('veol-show');
     }
 
+    hideLeftPannel(){
+        this.$leftPannel.removeClass('veol-show');
+    }
+
+    showLeftPannel(){
+        this.$leftPannel.addClass('veol-show');
+    }
 
     appendTo(element){
         $(element).append(this.$root);
