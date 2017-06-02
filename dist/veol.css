@@ -836,7 +836,7 @@ so we can ignore the csslint warning.
 
 .veol-modal .veol-modal-header {
   display: flex;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .veol-modal .veol-modal-header .veol-modal-title {
@@ -853,6 +853,10 @@ so we can ignore the csslint warning.
 
 .veol-modal .veol-modal-content {
   padding: 12px;
+}
+
+.veol-modal-widget-fields-creation .veol-property-editor {
+  height: auto;
 }
 
 .veol-widget-creator .veol-modal-display-area {
@@ -889,7 +893,7 @@ so we can ignore the csslint warning.
 }
 
 .veol-widget-creator .veol-widget-name {
-  height: 15px;
+  height: 21px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

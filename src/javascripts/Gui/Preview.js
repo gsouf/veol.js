@@ -62,7 +62,10 @@ function widgetRefreshPreview($child, widget, event){
     var preview = widget.widgetDefinition.config.preview;
     if(preview && preview.onDataChange){
         var $innerData = $child.find('.veol-preview-content').first();
-        preview.onDataChange($child, $innerData, widget, event);
+
+        if($innerData.length > 0){
+            preview.onDataChange($child, $innerData, widget, event);
+        }
     }
 }
 

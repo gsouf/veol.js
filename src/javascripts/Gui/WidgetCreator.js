@@ -1,4 +1,5 @@
 import utils from '../utils';
+import WidgetCreatorFieldEditor from './WidgetCreatorFieldEditor'
 
 function createWidgetButton(widgetName, widgetDef){
 
@@ -58,7 +59,7 @@ class WidgetCreator{
         this.$widgetList = this.$root.find('.veol-creator-widgetlist');
 
 
-        var self = this;
+        let self = this;
 
         utils.bindModal(this.$root, function(){
             self.$root.hide();
@@ -73,35 +74,19 @@ class WidgetCreator{
 
             self.close();
 
-            var widgetDefName = self.$root.find('.veol-button-widget.veol-selected').attr('veol-widget-name');
-            var parent = $(this).data('veol-parent');
-
-            var widgetDef = self.application.pageMaker.findWidgetDefinition(widgetDefName);
-
-            var data = {
-                widgetName: widgetDefName,
-                data: {}
-            };
+            let widgetDefName = self.$root.find('.veol-button-widget.veol-selected').attr('veol-widget-name');
+            let parent = $(this).data('veol-parent');
 
 
-            var properties = widgetDef.config.properties;
+            let fieldsEditor = new WidgetCreatorFieldEditor(application, widgetDefName);
+            fieldsEditor.create(parent, function(newWidget){
+                parent.children.push(newWidget);
 
-            if(properties){
-                for(var i = 0; i < properties.length; i++){
-                    if(properties[i].hasOwnProperty("defaultValue")){
-                        data.data[properties[i].name] = properties[i].defaultValue;
-                    }
-                }
-            }
+                self.application.dispatchEvent('widgetAdded', [newWidget]);
 
-
-            var newWidget = self.application.pageMaker.parseData(data, self.application, parent);
-            parent.children.push(newWidget);
-
-            self.application.dispatchEvent('widgetAdded', [newWidget]);
-
-            self.application.unselectAllWidgets();
-            self.application.selectWidget(newWidget);
+                self.application.unselectAllWidgets();
+                self.application.selectWidget(newWidget);
+            });
 
         });
 

@@ -14,6 +14,7 @@ export default WidgetDefinition.create({
                 size = 12;
             }
 
+
             var classes = $outer.attr("class").split(' ');
             $.each(classes, function(i, c) {
                 if (c.indexOf("veol-col-") == 0) {
