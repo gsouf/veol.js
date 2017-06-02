@@ -54,8 +54,8 @@ export default class WidgetCreatorFieldEditor{
                 </div>
                 <div class="veol-modal-content"></div>
                 <div class="veol-modal-footer">
-                    <div class="veol-button veol-button-validate">Valider</div>
                     <div veol-close class="veol-button veol-button-cancel">Annuler</div>
+                    <div class="veol-button veol-button-validate">Valider</div>
                 </div>
             </div>         
           </div>
