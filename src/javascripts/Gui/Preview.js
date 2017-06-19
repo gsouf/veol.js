@@ -52,6 +52,9 @@ function drawWidget(preview, widget, $parent){
     } else {
         var $innerData = $(`<div class="veol-preview-content"></div>`);
         $innerData.appendTo($child);
+        if(previewProperties.onCreateContentContainer){
+            previewProperties.onCreateContentContainer($innerData, widget);
+        }
 
         widgetRefreshPreview($child, widget, {});
     }

@@ -10,6 +10,7 @@ import WidgetPropertiesEditor from './Gui/WidgetPropertiesEditor'
 import WidgetCreator from './Gui/WidgetCreator'
 import Viewport from './Gui/Viewport'
 import ToolboxBar from './Gui/ToolboxBar'
+import vueJsPreview from './Gui/vueJsPreview'
 
 // Toolbax action
 import SimpleButton from './Gui/ToolboxAction/SimpleButton'
@@ -21,7 +22,7 @@ import Error from './Error'
 import PropertyEditor from './Gui/WidgetPropertiesEditor/PropertyEditor'
 import EditorSimpleInput from './Gui/WidgetPropertiesEditor/Editor/SimpleInput'
 
-var Veol = {
+let Veol = {
     PageMaker,
     WidgetDefinition,
 
@@ -31,6 +32,7 @@ var Veol = {
         WidgetPropertiesEditor,
         WidgetCreator,
         Viewport,
+        vueJsPreview,
         ToolboxBar,
         ToolboxAction: {
             SimpleButton,
