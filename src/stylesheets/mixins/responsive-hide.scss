@@ -1,0 +1,14 @@
+
+
+// Create grid for specific class
+@mixin show-for($class) {
+  .veol-show-for-#{$class} {
+    display: none;
+  }
+}
+
+@mixin hide-for($class) {
+  .veol-hide-for-#{$class} {
+    display: none;
+  }
+}

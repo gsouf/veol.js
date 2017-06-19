@@ -403,6 +403,7 @@ so we can ignore the csslint warning.
 
 .veol-preview .veol-device-screen {
   min-height: 30px;
+  overflow-x: hidden;
 }
 
 .veol-preview.veol-device-enabled .veol-device-wrapper {
@@ -1195,6 +1196,18 @@ so we can ignore the csslint warning.
   margin-left: 100%;
 }
 
+.veol-device-small .veol-show-for-md {
+  display: none;
+}
+
+.veol-device-small .veol-show-for-lg {
+  display: none;
+}
+
+.veol-device-small .veol-show-for-xl {
+  display: none;
+}
+
 .veol-device-medium .veol-col-sm-1, .veol-device-medium .veol-col-sm-2, .veol-device-medium .veol-col-sm-3, .veol-device-medium .veol-col-sm-4, .veol-device-medium .veol-col-sm-5, .veol-device-medium .veol-col-sm-6, .veol-device-medium .veol-col-sm-7, .veol-device-medium .veol-col-sm-8, .veol-device-medium .veol-col-sm-9, .veol-device-medium .veol-col-sm-10, .veol-device-medium .veol-col-sm-11, .veol-device-medium .veol-col-sm-12 {
   float: left;
 }
@@ -1609,6 +1622,18 @@ so we can ignore the csslint warning.
 
 .veol-device-medium .veol-col-md-offset-12 {
   margin-left: 100%;
+}
+
+.veol-device-medium .veol-show-for-lg {
+  display: none;
+}
+
+.veol-device-medium .veol-show-for-xl {
+  display: none;
+}
+
+.veol-device-medium .veol-hide-for-md {
+  display: none;
 }
 
 .veol-device-large .veol-col-sm-1, .veol-device-large .veol-col-sm-2, .veol-device-large .veol-col-sm-3, .veol-device-large .veol-col-sm-4, .veol-device-large .veol-col-sm-5, .veol-device-large .veol-col-sm-6, .veol-device-large .veol-col-sm-7, .veol-device-large .veol-col-sm-8, .veol-device-large .veol-col-sm-9, .veol-device-large .veol-col-sm-10, .veol-device-large .veol-col-sm-11, .veol-device-large .veol-col-sm-12 {
@@ -2233,6 +2258,18 @@ so we can ignore the csslint warning.
 
 .veol-device-large .veol-col-lg-offset-12 {
   margin-left: 100%;
+}
+
+.veol-device-large .veol-show-for-xl {
+  display: none;
+}
+
+.veol-device-large .veol-hide-for-md {
+  display: none;
+}
+
+.veol-device-large .veol-hide-for-lg {
+  display: none;
 }
 
 .veol-device-xlarge .veol-col-sm-1, .veol-device-xlarge .veol-col-sm-2, .veol-device-xlarge .veol-col-sm-3, .veol-device-xlarge .veol-col-sm-4, .veol-device-xlarge .veol-col-sm-5, .veol-device-xlarge .veol-col-sm-6, .veol-device-xlarge .veol-col-sm-7, .veol-device-xlarge .veol-col-sm-8, .veol-device-xlarge .veol-col-sm-9, .veol-device-xlarge .veol-col-sm-10, .veol-device-xlarge .veol-col-sm-11, .veol-device-xlarge .veol-col-sm-12 {
@@ -3065,6 +3102,18 @@ so we can ignore the csslint warning.
 
 .veol-device-xlarge .veol-col-xl-offset-12 {
   margin-left: 100%;
+}
+
+.veol-device-xlarge .veol-hide-for-md {
+  display: none;
+}
+
+.veol-device-xlarge .veol-hide-for-lg {
+  display: none;
+}
+
+.veol-device-xlarge .veol-hide-for-xl {
+  display: none;
 }
 
 .veol-hide {

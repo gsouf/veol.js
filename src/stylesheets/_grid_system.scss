@@ -13,6 +13,11 @@
   // Columns, offsets, pushes, and pulls for the small device range, from phones
   // to tablets.
   @include make-grid(sm);
+
+  // Show for
+  @include show-for(md);
+  @include show-for(lg);
+  @include show-for(xl);
 }
 
 .veol-device-medium {
@@ -21,6 +26,13 @@
   // Columns, offsets, pushes, and pulls for the desktop device range.
   @include make-grid(sm);
   @include make-grid(md);
+
+  // Show for
+  @include show-for(lg);
+  @include show-for(xl);
+
+  // hide for
+  @include hide-for(md);
 }
 
 .veol-device-large {
@@ -30,6 +42,14 @@
   @include make-grid(sm);
   @include make-grid(md);
   @include make-grid(lg);
+
+  // Show for
+  @include show-for(xl);
+
+  // hide for
+  @include hide-for(md);
+  @include hide-for(lg);
+
 }
 
 .veol-device-xlarge {
@@ -40,4 +60,9 @@
   @include make-grid(md);
   @include make-grid(lg);
   @include make-grid(xl);
+
+  // hide for
+  @include hide-for(md);
+  @include hide-for(lg);
+  @include hide-for(xl);
 }
