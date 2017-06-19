@@ -205,6 +205,16 @@ export default {
             closeHandler();
         });
 
+        $modal.css({'z-index': Veol._currentZIndex++});
+
+    },
+
+    /**
+     * Bind a modal to be responsive to use interaction (close buttons)
+     * @param $el
+     */
+    setZIndex: function($el){
+        $el.css({'z-index': Veol._currentZIndex++});
     },
 
 

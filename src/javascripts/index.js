@@ -40,12 +40,16 @@ let Veol = {
         }
     },
 
+
+
     PropertyEditor,
 
     utils,
     titleDetails,
 
-    Error
+    Error,
+
+    _currentZIndex: 1500
 
 };
 
