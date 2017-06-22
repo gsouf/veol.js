@@ -14,10 +14,11 @@ export default function vueJsPreview (options) {
                 }
             }
 
-            new Vue({
-                el: $block[0],
-                data: widget.data
-            })
+            let vueOptions = options.vueOptions || {};
+            vueOptions.el = $block[0];
+            vueOptions.data = widget.data;
+
+            new Vue(vueOptions);
         }
 
     }
