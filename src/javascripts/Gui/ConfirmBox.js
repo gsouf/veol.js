@@ -39,7 +39,6 @@ class ConfirmBox{
         this.$root.find('.veol-button-validate').click(function(){
             self.close();
 
-                console.log('kk');
             if(self._yes){
                 self._yes();
             }
