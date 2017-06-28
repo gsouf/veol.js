@@ -13,7 +13,12 @@ class SimpleInput extends PropertyEditor{
         this.config.onCreateEditor = function($editor, widget, property){
             var $input = self.getInput($editor, widget, property);
             $input.on('input', function(){
-                widget.application.updateWidgetData(widget, property.name, $input.val());
+                widget.application.updateWidgetData(
+                    widget,
+                    property.name,
+                    $input.val(),
+                    {editor: self} // Track edition source to dont update itself on change (se dataEdited bellow)
+                );
             });
 
             $editor.data('veol-get-value', function(){
@@ -27,8 +32,12 @@ class SimpleInput extends PropertyEditor{
             }
 
             widget.addEventListener('dataEdited', function(propertyName, value){
+
                 if(propertyName == property.name){
-                    $input.val(value);
+                    // Dont update on self edit (see updateWidgetData above)
+                    if(!this.data.editor || this.data.editor !== self){
+                        $input.val(value);
+                    }
                 }
             });
 
