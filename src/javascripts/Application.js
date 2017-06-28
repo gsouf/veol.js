@@ -49,7 +49,8 @@ class Application {
 
     deleteWidget(widget){
         var i = widget.parent.children.indexOf(widget);
-        if(i>0){
+        console.log(i);
+        if(i>=0){
             widget.parent.children.splice(i, 1);
         }
         this.dispatchEvent('widgetDeleted', [widget]);
